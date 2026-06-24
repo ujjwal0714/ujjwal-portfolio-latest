@@ -1,0 +1,266 @@
+@import "tailwindcss";
+
+@theme {
+  --color-retro-yellow: #facc15;
+  --color-retro-cyan: #00f5ff;
+  --color-retro-red: #ef4444;
+  --color-retro-bg: #0a0a0f;
+  --color-retro-black: #000000;
+
+  --font-pixel: "Pixelify Sans", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #000000;
+    /* background-image: url('/Images/wallpaper2.jpg'); */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #ffffff;
+    font-family: var(--font-mono);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #000;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #facc15;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00f5ff;
+  }
+}
+
+@layer utilities {
+
+  /* ── Neo-brutalist borders & shadows ── */
+  .neo-shadow {
+    box-shadow: 4px 4px 0px 0px #000000;
+  }
+
+  .neo-shadow-sm {
+    box-shadow: 2px 2px 0px 0px #000000;
+  }
+
+  .neo-shadow-cyan {
+    box-shadow: 4px 4px 0px 0px #00f5ff;
+  }
+
+  .neo-border {
+    border: 3px solid #000000;
+  }
+
+  .neo-border-sm {
+    border: 2px solid #000000;
+  }
+
+  .neo-border-white {
+    border: 2px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .neo-hover {
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+  }
+
+  .neo-hover:active,
+  .neo-hover-active:hover {
+    box-shadow: 0px 0px 0px 0px #000000;
+    transform: translate(4px, 4px);
+  }
+
+  /* ── Dark glass skill card ── */
+  .skill-card {
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-left: 4px solid #facc15;
+    backdrop-filter: blur(10px);
+  }
+
+  /* ── Photo retro filter ── */
+  .retro-photo {
+    filter: grayscale(80%) contrast(1.3) brightness(0.9) sepia(20%);
+    transition: filter 0.4s ease;
+  }
+
+  .retro-photo:hover {
+    filter: grayscale(0%) contrast(1.1) brightness(1) sepia(0%);
+  }
+
+  /* ── Cyan accent text ── */
+  .text-cyan-accent {
+    color: #00f5ff;
+  }
+
+  /* ── Glitch hover on text ── */
+  .glitch {
+    position: relative;
+  }
+
+  .glitch:hover::before,
+  .glitch:hover::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .glitch:hover::before {
+    color: #00f5ff;
+    animation: glitch-top 0.3s infinite linear;
+    clip-path: polygon(0 0, 100% 0, 100% 40%, 0 40%);
+  }
+
+  .glitch:hover::after {
+    color: #facc15;
+    animation: glitch-bottom 0.3s infinite linear;
+    clip-path: polygon(0 60%, 100% 60%, 100% 100%, 0 100%);
+  }
+
+  /* ── Static skill pills ── */
+  .skill-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    min-height: 2.25rem;
+    padding: 0.5rem 0.75rem;
+    border: 1px solid #facc15;
+    background: #facc15;
+    color: #000000;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    box-shadow:
+      inset 0 -2px 0 rgba(0, 0, 0, 0.12),
+      2px 2px 0 rgba(0, 0, 0, 0.55);
+    transition:
+      color 160ms ease,
+      border-color 160ms ease,
+      background-color 160ms ease,
+      transform 160ms ease;
+  }
+
+  .skill-pill:hover {
+    color: #000000;
+    border-color: #facc15;
+    background: #facc15;
+    transform: translateY(-2px);
+  }
+
+  .skill-pill-dot {
+    width: 0.375rem;
+    height: 0.375rem;
+    flex: 0 0 auto;
+    background: #000000;
+    box-shadow: none;
+  }
+
+  .skill-pill:hover .skill-pill-dot {
+    background: #000000;
+    box-shadow: none;
+  }
+
+  /* ── Typing cursor ── */
+  .typing-cursor::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+    color: #facc15;
+  }
+}
+
+/* ── Keyframes ── */
+@keyframes glitch-top {
+  0% {
+    transform: translate(-2px, 0);
+  }
+
+  25% {
+    transform: translate(2px, 0);
+  }
+
+  50% {
+    transform: translate(-1px, 0);
+  }
+
+  75% {
+    transform: translate(1px, 0);
+  }
+
+  100% {
+    transform: translate(-2px, 0);
+  }
+}
+
+@keyframes glitch-bottom {
+  0% {
+    transform: translate(2px, 0);
+  }
+
+  25% {
+    transform: translate(-2px, 0);
+  }
+
+  50% {
+    transform: translate(1px, 0);
+  }
+
+  75% {
+    transform: translate(-1px, 0);
+  }
+
+  100% {
+    transform: translate(2px, 0);
+  }
+}
+
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes float-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-border {
+
+  0%,
+  100% {
+    border-color: #facc15;
+  }
+
+  50% {
+    border-color: #ef4444;
+  }
+}
