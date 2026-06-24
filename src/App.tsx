@@ -250,7 +250,7 @@ function Hero() {
         {/* Photo frame */}
         <div className="w-full aspect-square border-4 border-white neo-shadow-cyan overflow-hidden relative bg-zinc-200">
           <img
-            src="/Images/ujjwal.jpeg"
+            src={`${import.meta.env.BASE_URL}Images/ujjwal.jpeg`}
             alt="Ujjwal Omar"
             className="w-full h-full object-cover object-center retro-photo"
           />
@@ -309,7 +309,7 @@ function Hero() {
           </a>
           <a
             id="hero-resume"
-            href="/resume.pdf"
+            href={`${import.meta.env.BASE_URL}resume.pdf`}
             target="_blank"
             rel="noreferrer"
             className="bg-transparent text-white neo-border-white neo-hover px-6 py-3 font-bold flex items-center gap-2 text-sm hover:border-retro-yellow hover:text-retro-yellow transition-colors"
@@ -709,7 +709,7 @@ function Projects() {
   const projects = [
     {
       title: 'Digi-Blocker: Block Diagram Solver',
-      image: '/Images/control_sys.png',
+      image: `${import.meta.env.BASE_URL}Images/control_sys.png`,
       desc: 'A software tool for simplification of control system block diagrams via step-wise rule based reduction and Mason\'s formula. Integrated with built-in validation system to verify correctness of the determined solutions.',
       tags: ['Tooling', 'Algorithms'],
       link: 'https://dtbom.space/digiblocker',
@@ -718,7 +718,7 @@ function Projects() {
     },
     {
       title: 'Power Electronics Simulator',
-      image: '/Images/powet.jpg',
+      image: `${import.meta.env.BASE_URL}Images/powet.jpg`,
       desc: 'A study-tool for learners to do a quick simualtion of fundamental power electronics circuits with real-time, interactive waveforms.',
       tags: ['Simulator', 'Web'],
       link: 'https://www.dtbom.space/power-electronics-simulator/',
@@ -727,7 +727,7 @@ function Projects() {
     },
     {
       title: 'Locomotive Simulator',
-      image: '/Images/els.jpeg',
+      image: `${import.meta.env.BASE_URL}Images/els.jpeg`,
       desc: 'A video-based simulator system aimed to play videos in different speeds in both forward and reverse motion.',
       tags: ['Video', 'Simulator'],
       link: 'https://loco-sim.dtbom.space',
@@ -736,7 +736,7 @@ function Projects() {
     },
     {
       title: 'Doomsday Clock',
-      image: '/Images/doomsday.jpeg',
+      image: `${import.meta.env.BASE_URL}Images/doomsday.jpeg`,
       desc: 'A fan-tribute to the upcoming Marvel\'s Avengers: Doomsday.',
       tags: ['Web', 'Timer'],
       link: 'https://doomsday-clock.dtbom.space',
@@ -863,7 +863,7 @@ function Footer() {
             { icon: <GithubLogo size={20} weight="bold" />, href: 'https://github.com/ujjwal0714', label: 'github.com/ujjwal0714', external: true },
             { icon: <InstagramLogo size={20} weight="bold" />, href: 'https://instagram.com/ujjwal.0714', label: 'instagram.com/ujjwal.0714', external: true },
             { icon: <EnvelopeSimple size={20} weight="bold" />, href: 'mailto:ujjwalomar0714@gmail.com', label: 'ujjwalomar0714@gmail.com', external: false },
-            { icon: <FileText size={20} weight="bold" />, href: '/resume.pdf', label: 'View Resume', external: true },
+            { icon: <FileText size={20} weight="bold" />, href: `${import.meta.env.BASE_URL}resume.pdf`, label: 'View Resume', external: true },
           ].map(s => (
             <a
               key={s.label}
